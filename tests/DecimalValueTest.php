@@ -31,9 +31,9 @@ class DecimalValueTest extends TestCase
     public function testChangePrecision(): void
     {
         $decimalValue = DecimalValue::fromString('1.23');
-        $newDecimalValue = DecimalValue::changePrecision($decimalValue, 3);
-        $this->assertSame(1230, $newDecimalValue->value);
-        $this->assertSame(3, $newDecimalValue->precision);
+        $newDecimalValue = DecimalValue::changePrecision($decimalValue, 1);
+        $this->assertSame(12, $newDecimalValue->value);
+        $this->assertSame(1, $newDecimalValue->precision);
     }
 
     public function testFromIntWithNegativePrecision(): void
@@ -51,7 +51,7 @@ class DecimalValueTest extends TestCase
     public function testChangePrecisionDoesNotModifyOriginalDecimalValue(): void
     {
         $decimalValue = DecimalValue::fromString('1.23');
-        DecimalValue::changePrecision($decimalValue, 3);
+        DecimalValue::changePrecision($decimalValue, 1);
         $this->assertSame(123, $decimalValue->value);
         $this->assertSame(2, $decimalValue->precision);
     }

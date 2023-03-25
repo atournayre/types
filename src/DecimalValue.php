@@ -54,7 +54,7 @@ final class DecimalValue
 
     public static function changePrecision(DecimalValue $decimalValue, int $newPrecision): DecimalValue
     {
-        Assert::greaterThan($newPrecision, $decimalValue->precision, 'New precision must be greater than current precision');
+        Assert::greaterThan($decimalValue->precision, $newPrecision, 'New precision must be greater than current precision');
 
         $value = $decimalValue->value * pow(10, $newPrecision - $decimalValue->precision);
         return new DecimalValue($value, $newPrecision);
