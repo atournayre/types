@@ -1,0 +1,32 @@
+{
+    "name": "atournayre/types",
+    "description": "Types library.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aurélien Tournayre",
+            "email": "aurelien.tournayre@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "atournayre/assert": "^0"
+    },
+    "conflict": {
+        "phpstan/phpstan": "<0.12.20",
+        "vimeo/psalm": "<4.6.1 || 4.6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Atournayre\\Types\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Atournayre\\Types\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}
