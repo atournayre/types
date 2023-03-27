@@ -55,4 +55,10 @@ class DecimalValueTest extends TestCase
         $this->assertSame(123, $decimalValue->value);
         $this->assertSame(2, $decimalValue->precision);
     }
+
+    public function testToFloat(): void
+    {
+        $decimalValue = DecimalValue::fromString('1.23');
+        $this->assertSame(1.23, $decimalValue->toFloat());
+    }
 }
