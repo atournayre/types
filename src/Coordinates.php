@@ -32,6 +32,17 @@ class Coordinates
         );
     }
 
+    public static function fromArray(array $coordinates): self
+    {
+        Assert::keyExists($coordinates, 'lat');
+        Assert::keyExists($coordinates, 'lng');
+
+        return new static(
+            (float) $coordinates['lat'],
+            (float) $coordinates['lng']
+        );
+    }
+
     /**
      * Returns the coordinates as a tuple.
      *
