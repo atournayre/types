@@ -52,4 +52,17 @@ class Coordinates
     {
         return [$this->longitude, $this->latitude];
     }
+
+    /**
+     * Returns the coordinates as a JSON string.
+     *
+     * @return string
+     */
+    public function toJson(): string
+    {
+        return json_encode([
+            'lat' => $this->latitude,
+            'lng' => $this->longitude,
+        ]);
+    }
 }
