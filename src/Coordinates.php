@@ -44,6 +44,19 @@ class Coordinates
     }
 
     /**
+     * @param string $json
+     *
+     * @return self
+     */
+    public static function fromJson(string $json): self
+    {
+        $coordinates = json_decode($json, true);
+        Assert::isArray($coordinates);
+
+        return self::fromArray($coordinates);
+    }
+
+    /**
      * Returns the coordinates as a tuple.
      *
      * @return array
