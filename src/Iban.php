@@ -12,7 +12,7 @@ class Iban
     {
         Assert::notWhitespaceOnly($iban);
         Assert::alnum($iban);
-//        Assert::isIBAN($iban);
+        Assert::isIBAN($iban);
 
         $this->iban = $iban;
     }
