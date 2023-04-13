@@ -12,7 +12,7 @@ class Bic
     {
         Assert::notWhitespaceOnly($bic);
         Assert::alnum($bic);
-//        Assert::isBIC($bic);
+        Assert::isBIC($bic);
 
         $this->bic = $bic;
     }

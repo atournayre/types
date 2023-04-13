@@ -74,7 +74,6 @@ class BicTest extends \PHPUnit\Framework\TestCase
 
         foreach ($invalidBics as $bic) {
             $this->expectException(\InvalidArgumentException::class);
-            $this->expectExceptionMessage(sprintf('Expected a value to contain letters and digits only. Got: "%s"', $bic));
             Bic::fromString($bic);
         }
     }
