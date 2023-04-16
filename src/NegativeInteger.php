@@ -16,6 +16,7 @@ class NegativeInteger
     public static function fromInt(int $value): NegativeInteger
     {
         Assert::lessThan($value, 0);
+        Assert::greaterThanEq($value, PHP_INT_MIN);
 
         return new NegativeInteger($value);
     }
