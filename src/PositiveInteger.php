@@ -15,7 +15,7 @@ class PositiveInteger
 
     public static function fromInt(int $value): PositiveInteger
     {
-        Assert::greaterThan($value, 0);
+        Assert::greaterThanEq($value, 0);
         Assert::lessThanEq($value, PHP_INT_MAX);
 
         return new PositiveInteger($value);

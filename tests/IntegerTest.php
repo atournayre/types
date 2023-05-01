@@ -42,4 +42,18 @@ class IntegerTest extends \PHPUnit\Framework\TestCase
 
         self::assertSame(PHP_INT_MIN, $integer->value);
     }
+
+    public function testFromIntWithZeroIsAPositiveInteger(): void
+    {
+        $integer = PositiveInteger::fromInt(0);
+
+        self::assertInstanceOf(PositiveInteger::class, $integer);
+    }
+
+    public function testFromIntWithZeroIsANegativeInteger(): void
+    {
+        $integer = NegativeInteger::fromInt(0);
+
+        self::assertInstanceOf(NegativeInteger::class, $integer);
+    }
 }
