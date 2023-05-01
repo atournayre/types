@@ -4,19 +4,12 @@ namespace Atournayre\Types;
 
 use Atournayre\Assert\Assert;
 
-class EmailAddress
+class EmailAddress extends StringType
 {
-    public readonly ?string $email;
-
-    private function __construct(string $email)
+    protected function __construct(string $email)
     {
         Assert::email($email);
 
-        $this->email = $email;
-    }
-
-    public static function fromString(string $email): self
-    {
-        return new static($email);
+        $this->string = $email;
     }
 }

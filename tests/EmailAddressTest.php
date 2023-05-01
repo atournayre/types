@@ -11,7 +11,7 @@ class EmailAddressTest extends TestCase
     {
         $email = 'a@example.com';
         $emailAddress = EmailAddress::fromString($email);
-        $this->assertSame($email, $emailAddress->email);
+        $this->assertSame($email, $emailAddress->toString());
     }
 
     public function testEmailAddressEmpty(): void
