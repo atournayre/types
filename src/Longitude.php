@@ -12,4 +12,9 @@ class Longitude extends StringType
 
         $this->string = $longitude;
     }
+
+    public static function fromFloat(float $longitude): self
+    {
+        return new static((string) $longitude);
+    }
 }
