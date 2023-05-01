@@ -2,19 +2,12 @@
 
 namespace Atournayre\Types;
 
-class Latitude
+class Latitude extends StringType
 {
-    public readonly ?string $latitude;
-
     private function __construct(string $latitude)
     {
 //        Assert::latitude($latitude);
 
-        $this->latitude = $latitude;
-    }
-
-    public static function fromString(string $latitude): self
-    {
-        return new static($latitude);
+        $this->string = $latitude;
     }
 }
