@@ -13,11 +13,11 @@ class PositiveInteger
         $this->value = $value;
     }
 
-    public static function fromInt(int $value): PositiveInteger
+    public static function fromInt(int $value): static
     {
         Assert::greaterThanEq($value, 0);
         Assert::lessThanEq($value, PHP_INT_MAX);
 
-        return new PositiveInteger($value);
+        return new static($value);
     }
 }

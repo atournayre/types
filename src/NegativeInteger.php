@@ -13,11 +13,11 @@ class NegativeInteger
         $this->value = $value;
     }
 
-    public static function fromInt(int $value): NegativeInteger
+    public static function fromInt(int $value): static
     {
         Assert::lessThanEq($value, 0);
         Assert::greaterThanEq($value, PHP_INT_MIN);
 
-        return new NegativeInteger($value);
+        return new static($value);
     }
 }

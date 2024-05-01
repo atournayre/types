@@ -21,7 +21,7 @@ class Integer
         $this->value = $value;
     }
 
-    public static function fromInt(int $value): self
+    public static function fromInt(int $value): static
     {
         return new static($value);
     }

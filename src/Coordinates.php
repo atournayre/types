@@ -24,7 +24,7 @@ class Coordinates
         $this->longitude = $longitude;
     }
 
-    public static function fromString(string $latitude, string $longitude): self
+    public static function fromString(string $latitude, string $longitude): static
     {
         return new static(
             (float) $latitude,
@@ -32,7 +32,7 @@ class Coordinates
         );
     }
 
-    public static function fromArray(array $coordinates): self
+    public static function fromArray(array $coordinates): static
     {
         Assert::keyExists($coordinates, 'lat');
         Assert::keyExists($coordinates, 'lng');
@@ -46,14 +46,14 @@ class Coordinates
     /**
      * @param string $json
      *
-     * @return self
+     * @return static
      */
-    public static function fromJson(string $json): self
+    public static function fromJson(string $json): static
     {
         $coordinates = json_decode($json, true);
         Assert::isArray($coordinates);
 
-        return self::fromArray($coordinates);
+        return static::fromArray($coordinates);
     }
 
     /**
