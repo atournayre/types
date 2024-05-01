@@ -16,21 +16,21 @@ class NegativeDecimalValue extends DecimalValue
     public static function fromInt(
         int $value,
         int $precision
-    ): NegativeDecimalValue {
-        return new NegativeDecimalValue($value, $precision);
+    ): static {
+        return new static($value, $precision);
     }
 
     public static function fromFloat(
         float $value,
         int $precision
-    ): NegativeDecimalValue {
-        return new NegativeDecimalValue(
+    ): static {
+        return new static(
             (int)round($value * pow(10, $precision)),
             $precision
         );
     }
 
-    public static function fromString(string $value): NegativeDecimalValue
+    public static function fromString(string $value): static
     {
         $result = preg_match('/^(\d+)\.(\d+)/', $value, $matches);
         if ($result == 0) {
@@ -42,21 +42,21 @@ class NegativeDecimalValue extends DecimalValue
 
         $valueWithoutDecimalSign = $wholeNumber . $decimals;
 
-        return new NegativeDecimalValue(
+        return new static(
             (int)$valueWithoutDecimalSign,
             strlen($decimals)
         );
     }
 
-    public static function changePrecision(IsDecimalValueInterface $decimalValue, int $newPrecision): NegativeDecimalValue
+    public static function changePrecision(IsDecimalValueInterface $decimalValue, int $newPrecision): static
     {
         if ($decimalValue->precision === $newPrecision) {
-            return new NegativeDecimalValue($decimalValue->value, $decimalValue->precision);
+            return new static($decimalValue->value, $decimalValue->precision);
         }
 
         Assert::lessThan($decimalValue->precision, $newPrecision, 'New precision must be less than current precision');
 
         $value = $decimalValue->value * pow(10, $newPrecision - $decimalValue->precision);
-        return new NegativeDecimalValue($value, $newPrecision);
+        return new static($value, $newPrecision);
     }
 }

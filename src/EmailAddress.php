@@ -2,7 +2,7 @@
 
 namespace Atournayre\Types;
 
-use Atournayre\Assert\Assert;
+use Webmozart\Assert\Assert;
 
 class EmailAddress extends StringType
 {

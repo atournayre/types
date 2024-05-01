@@ -13,7 +13,7 @@ class Latitude extends StringType
         $this->string = $latitude;
     }
 
-    public static function fromFloat(float $latitude): self
+    public static function fromFloat(float $latitude): static
     {
         return new static((string) $latitude);
     }
